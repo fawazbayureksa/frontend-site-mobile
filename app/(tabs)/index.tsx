@@ -17,7 +17,7 @@ export default function HomeScreen() {
 }, []);
 
 const getData = async () => {
-    const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/dashboard');
+    const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/dashboard');
     const data = await response.json();
     setTotalProducts(data.data.products)
     setTotalCustomers(data.data.customers) 

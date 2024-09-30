@@ -38,7 +38,7 @@ const Product = () => {
     const getData = async () => {
       try {
         console.log('Fetching products...');
-        const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/products');
+        const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/products');
         const data = await response.json();
         setProducts(data.data); // Assuming the response is an object with a `data` field
       } catch (error) {
@@ -50,7 +50,7 @@ const Product = () => {
 
     const createProduct = async (e:any) => {
       e.preventDefault();
-      const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/products', {
+      const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/products', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ const Product = () => {
     const deleteProduct = async (id:number) => {
         try {
             console.log('Deleting product...');
-            const response = await fetch(`https://047e-158-140-182-97.ngrok-free.app/api/products/${id}`, {
+            const response = await fetch(`https://990f-103-133-68-7.ngrok-free.app/api/products/${id}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -104,7 +104,7 @@ const Product = () => {
   
   const updateProduct = async (e:any) => {
       e.preventDefault();
-      const response = await fetch(`https://047e-158-140-182-97.ngrok-free.app/api/products/${editId}`, {
+      const response = await fetch(`https://990f-103-133-68-7.ngrok-free.app/api/products/${editId}`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json'
@@ -143,7 +143,14 @@ const Product = () => {
               <ThemedText type="title">Product</ThemedText>
             </ThemedView>
           <ThemedView style={styles.buttonContainer}>
-            <Button title="Create New Product" onPress={() => setModalVisible(true)} color="#2196F3" />
+            <Button title="Create New Product" onPress={() => {
+              setModalVisible(true)
+              setEditId(0)
+              setCode('')
+              setProductName('')
+              setCategory('')
+              setPrice('')
+              }} color="#2196F3" />
           </ThemedView>
             <ThemedView style={styles.productListContainer}>
                 {!loading && products.map((item) => (

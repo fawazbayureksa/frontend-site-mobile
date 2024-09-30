@@ -23,19 +23,19 @@ const Sale: React.FC = () => {
   }, []);
 
   const fetchCustomers = async () => {
-    const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/customers');
+    const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/customers');
     const data = await response.json();
     setCustomers(data.data);
   };
 
   const fetchProducts = async () => {
-    const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/products');
+    const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/products');
     const data = await response.json();
     setProducts(data.data); // Assuming the resp
   };
 
   const fetchSalesData = async () => {
-    const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/sales');
+    const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/sales');
     const data = await response.json();
     setSales(data.data);
   };
@@ -96,7 +96,7 @@ const Sale: React.FC = () => {
   const createSale = async (saleData: any) => {
     console.log(saleData);
     try {
-      const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/sales', {
+      const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/sales', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ const Sale: React.FC = () => {
   
   const deleteSale = async (saleId: number) => {
     try {
-      const response = await fetch(`https://047e-158-140-182-97.ngrok-free.app/api/sales/${saleId}`, {
+      const response = await fetch(`https://990f-103-133-68-7.ngrok-free.app/api/sales/${saleId}`, {
         method: 'DELETE',
       });
       const data = await response.json();

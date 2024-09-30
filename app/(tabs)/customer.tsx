@@ -21,7 +21,7 @@ export default function Customer() {
   const getData = async () => {
     try {
       console.log('Fetching customers...');
-      const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/customers');
+      const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/customers');
       const data = await response.json();
       setCustomers(data.data);
     } catch (error) {
@@ -35,7 +35,7 @@ export default function Customer() {
   const createCustomer = async (customerData: { name: string; domicile: string; gender: string }) => {
     try {
       console.log('Creating new customer...');
-      const response = await fetch('https://047e-158-140-182-97.ngrok-free.app/api/customers', {
+      const response = await fetch('https://990f-103-133-68-7.ngrok-free.app/api/customers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ export default function Customer() {
           onPress: async () => {
             try {
               await fetch(
-                `https://047e-158-140-182-97.ngrok-free.app/api/customers/${customer.id}`,
+                `https://990f-103-133-68-7.ngrok-free.app/api/customers/${customer.id}`,
                 {
                   method: 'DELETE',
                 }
@@ -94,7 +94,7 @@ export default function Customer() {
 
   const updateCustomer = async (e:any) => {
       e.preventDefault();
-      const response = await fetch(`https://047e-158-140-182-97.ngrok-free.app/api/customers/${editId}`, {
+      const response = await fetch(`https://990f-103-133-68-7.ngrok-free.app/api/customers/${editId}`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json'
@@ -132,7 +132,14 @@ export default function Customer() {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => setModalVisible(true)}
+          onPress={() => {
+            setModalVisible(true)
+            setEditId(0);
+            setName('');
+            setDomicile('');
+            setGender('');
+            }
+          }
           >
           <ThemedText style={styles.buttonText}>Create new </ThemedText>
         </TouchableOpacity>
